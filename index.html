@@ -31,119 +31,249 @@
   <meta name="twitter:description" content="Temer Properties is a trusted name in Ethiopian real estate, offering apartments and investment opportunities in Addis Ababa." />
   <meta name="twitter:image" content="logo.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --green:#7aa62c;
-      --darkgreen:#5f8220;
-      --gold:#c9a14a;
-      --gold-dark:#b78d36;
-      --bg:#0f1a0f;
-      --card:#162316;
-      --card2:#1b2d1b;
-      --border:rgba(255,255,255,.12);
-      --text:#ffffff;
-      --muted:#d6dfc9;
-      --radius:20px;
-      --shadow:0 20px 45px rgba(0,0,0,.55);
+      --green:#7fae2e;
+      --green-deep:#41611a;
+      --forest:#0c1a0e;
+      --forest-2:#12240f;
+      --gold:#d9b46a;
+      --gold-soft:#f0d9a6;
+      --gold-dark:#a9803a;
+      --clay:#c8703f;
+      --card:#14231a;
+      --card-line:rgba(217,180,106,.16);
+      --hairline:rgba(255,255,255,.10);
+      --text:#f6f4ec;
+      --muted:#c7d0b9;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --shadow:0 24px 60px rgba(0,0,0,.55);
+      --serif:'Fraunces', Georgia, serif;
+      --sans:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
-    html{
-      scroll-behavior:smooth;
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
     }
 
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:var(--sans);
       min-height:100vh;
       background:
-        radial-gradient(800px 400px at 20% 10%, rgba(122,166,44,.25), transparent 60%),
-        radial-gradient(700px 400px at 80% 30%, rgba(201,161,74,.20), transparent 60%),
-        linear-gradient(135deg, #0b140b, var(--bg));
+        radial-gradient(900px 480px at 12% -6%, rgba(127,174,46,.22), transparent 60%),
+        radial-gradient(760px 460px at 92% 12%, rgba(217,180,106,.16), transparent 62%),
+        linear-gradient(160deg, #081208 0%, var(--forest) 46%, #0a160a 100%);
       color:var(--text);
       line-height:1.6;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    /* subtle woven-motif backdrop, evokes Ethiopian textile geometry without shouting */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.05;
+      background-image:
+        repeating-linear-gradient(45deg, var(--gold) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(-45deg, var(--gold) 0 1px, transparent 1px 26px);
+      mask-image:radial-gradient(1100px 700px at 50% 0%, #000 0%, transparent 72%);
     }
 
     .wrapper{
       width:100%;
       max-width:980px;
       margin:0 auto;
-      padding:24px 16px 40px;
+      padding:38px 16px 48px;
+      position:relative;
+      z-index:1;
     }
 
     .container{
       width:100%;
-      max-width:760px;
+      max-width:720px;
       margin:0 auto;
-      background:linear-gradient(180deg, #1a2b1a, var(--card));
-      border:1px solid var(--border);
-      border-radius:28px;
+      background:linear-gradient(180deg, rgba(29,46,25,.92), var(--card) 60%);
+      border:1px solid var(--card-line);
+      border-radius:32px;
       box-shadow:var(--shadow);
-      padding:30px 22px;
+      padding:0 0 30px;
       text-align:center;
+      overflow:hidden;
+      position:relative;
+      animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    /* floating site-visit call button, top right */
+    .site-visit{
+      position:absolute;
+      top:22px;
+      right:18px;
+      z-index:5;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      text-decoration:none;
+      background:linear-gradient(135deg, #ff9d3d, var(--clay));
+      color:#241305;
+      font-family:var(--sans);
+      font-weight:800;
+      font-size:12.5px;
+      letter-spacing:.2px;
+      padding:9px 14px 9px 11px;
+      border-radius:999px;
+      box-shadow:0 10px 22px rgba(200,112,63,.45), 0 0 0 1px rgba(255,255,255,.18) inset;
+      animation:pulse-glow 2.6s ease-in-out infinite;
+      transition:transform .18s ease, filter .18s ease;
+    }
+
+    .site-visit:hover, .site-visit:focus-visible{
+      transform:translateY(-2px) scale(1.03);
+      filter:brightness(1.08);
+    }
+
+    .site-visit:focus-visible{
+      outline:2px solid var(--gold-soft);
+      outline-offset:3px;
+    }
+
+    .site-visit .sv-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#241305;
+      flex-shrink:0;
+    }
+
+    @keyframes pulse-glow{
+      0%, 100%{ box-shadow:0 10px 22px rgba(200,112,63,.45), 0 0 0 1px rgba(255,255,255,.18) inset; }
+      50%{ box-shadow:0 10px 30px rgba(255,157,61,.65), 0 0 0 1px rgba(255,255,255,.28) inset; }
+    }
+
+    @media (max-width:640px){
+      .site-visit{
+        top:14px;
+        right:12px;
+        font-size:11.5px;
+        padding:8px 12px 8px 10px;
+      }
+    }
+
+    @keyframes rise{
+      from{opacity:0; transform:translateY(18px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    /* signature ribbon: thin gold/green cross-hatch band, nod to Ethiopian textile borders */
+    .ribbon{
+      height:9px;
+      width:100%;
+      background:repeating-linear-gradient(
+        90deg,
+        var(--gold) 0 18px,
+        var(--green) 18px 36px,
+        var(--clay) 36px 54px
+      );
+      background-size:54px 100%;
+    }
+
+    .hero{
+      padding:34px 26px 6px;
     }
 
     .logo{
-      width:150px;
-      height:150px;
-      margin:0 auto 16px;
-      border-radius:28px;
+      width:132px;
+      height:132px;
+      margin:0 auto 18px;
+      border-radius:50%;
       border:2px solid var(--gold);
       background:#ffffff;
       display:flex;
       align-items:center;
       justify-content:center;
       overflow:hidden;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      box-shadow:0 12px 30px rgba(0,0,0,.35), 0 0 0 6px rgba(217,180,106,.08);
     }
 
     .logo img{
       width:100%;
       height:100%;
       object-fit:contain;
-      padding:10px;
+      padding:12px;
     }
 
     .badge{
-      display:inline-block;
-      background:rgba(201,161,74,.14);
-      color:var(--gold);
-      border:1px solid rgba(201,161,74,.35);
-      padding:7px 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background:rgba(217,180,106,.12);
+      color:var(--gold-soft);
+      border:1px solid rgba(217,180,106,.35);
+      padding:8px 16px;
       border-radius:999px;
       font-size:12px;
       font-weight:700;
-      letter-spacing:.4px;
-      margin-bottom:14px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .badge::before{
+      content:"";
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 3px rgba(127,174,46,.25);
     }
 
     h1{
-      margin:6px 0 8px;
-      font-size:34px;
-      line-height:1.15;
-      color:var(--gold);
-      letter-spacing:.3px;
+      margin:6px 0 10px;
+      font-family:var(--serif);
+      font-weight:600;
+      font-size:clamp(30px,5vw,40px);
+      line-height:1.14;
+      color:var(--gold-soft);
+      letter-spacing:.2px;
     }
 
     .subtitle{
-      margin:0 auto 18px;
+      margin:0 auto 22px;
       color:var(--muted);
-      font-size:15px;
-      max-width:620px;
+      font-size:15.5px;
+      max-width:560px;
     }
 
     .intro{
-      margin:0 auto 24px;
-      color:#f3f6ec;
+      margin:0 auto 26px;
+      color:#eef1e4;
       font-size:15px;
-      max-width:670px;
+      max-width:610px;
+      text-align:left;
+      background:rgba(0,0,0,.14);
+      border:1px solid var(--hairline);
+      border-radius:var(--radius-md);
+      padding:16px 18px;
     }
+
+    .intro strong{ color:var(--gold-soft); }
 
     .btn-grid{
       display:grid;
-      gap:14px;
-      margin:10px 0 28px;
+      gap:13px;
+      margin:6px 0 6px;
+      padding:0 26px;
     }
 
     .btn{
@@ -151,58 +281,95 @@
       align-items:center;
       justify-content:space-between;
       padding:16px 18px;
-      border-radius:var(--radius);
+      border-radius:var(--radius-md);
       text-decoration:none;
-      color:var(--text);
-      background:linear-gradient(135deg, var(--green), var(--darkgreen));
-      font-weight:800;
-      box-shadow:0 10px 25px rgba(0,0,0,.35);
-      transition:.18s ease;
+      color:var(--forest);
+      background:linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+      color:#fbfff2;
+      font-weight:700;
+      font-size:15px;
+      box-shadow:0 12px 26px rgba(65,97,26,.35);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
       border:1px solid rgba(255,255,255,.08);
     }
 
     .btn.secondary{
-      background:linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color:#1a1a1a;
+      background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color:#221808;
+      box-shadow:0 12px 26px rgba(169,128,58,.35);
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-      filter:brightness(1.05);
+    .btn:hover, .btn:focus-visible{
+      transform:translateY(-3px);
+      filter:brightness(1.06);
+      box-shadow:0 16px 32px rgba(0,0,0,.4);
+    }
+
+    .btn:focus-visible{
+      outline:2px solid var(--gold-soft);
+      outline-offset:3px;
     }
 
     .left{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:12px;
       text-align:left;
     }
 
     .icon{
-      width:38px;
-      height:38px;
+      width:40px;
+      height:40px;
       border-radius:12px;
-      background:rgba(0,0,0,.22);
+      background:rgba(0,0,0,.2);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:18px;
+      font-size:19px;
       flex-shrink:0;
     }
 
+    .btn small{
+      display:block;
+      font-weight:600;
+      opacity:.92;
+      font-size:13px;
+      margin-top:2px;
+      letter-spacing:.3px;
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:28px 26px 0;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+    .divider::before, .divider::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background:linear-gradient(90deg, transparent, var(--hairline), transparent);
+    }
+
     .section{
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      border-radius:22px;
-      padding:22px 18px;
-      margin-top:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--hairline);
+      border-radius:var(--radius-md);
+      padding:24px 22px;
+      margin:20px 26px 0;
       text-align:left;
     }
 
     .section h2{
-      margin:0 0 10px;
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-weight:600;
       font-size:22px;
-      color:var(--gold);
+      color:var(--gold-soft);
     }
 
     .section p{
@@ -211,43 +378,72 @@
       font-size:15px;
     }
 
+    .section p:last-of-type{ margin-bottom:0; }
+
     .highlights{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
       gap:12px;
-      margin-top:12px;
+      margin-top:14px;
     }
 
     .highlight{
-      background:var(--card2);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:14px;
+      background:var(--card2, #182a17);
+      border:1px solid var(--hairline);
+      border-radius:16px;
+      padding:16px 14px;
+      text-align:center;
+      transition:border-color .18s ease, transform .18s ease;
+    }
+
+    .highlight:hover{
+      border-color:rgba(217,180,106,.4);
+      transform:translateY(-2px);
+    }
+
+    .highlight .h-icon{
+      font-size:20px;
+      margin-bottom:6px;
     }
 
     .highlight strong{
       display:block;
       color:var(--gold);
-      font-size:18px;
+      font-family:var(--serif);
+      font-size:19px;
       margin-bottom:4px;
     }
 
     .highlight span{
       color:var(--muted);
-      font-size:14px;
+      font-size:13.5px;
     }
 
     .cta-text{
-      color:#fff6da;
+      color:var(--gold-soft);
       font-weight:700;
-      margin-top:8px;
+      margin-top:10px;
+      font-size:15px;
+    }
+
+    .phone-highlight{
+      display:inline-block;
+      color:var(--gold-soft);
+      font-weight:800;
+      letter-spacing:.4px;
     }
 
     footer{
-      margin-top:24px;
+      margin-top:30px;
+      padding:18px 26px 0;
       font-size:12px;
       color:var(--muted);
       text-align:center;
+      border-top:1px solid var(--hairline);
+    }
+
+    footer .foot-inner{
+      padding-top:16px;
     }
 
     .sr-only{
@@ -263,21 +459,64 @@
     }
 
     @media (max-width:640px){
-      .container{
-        padding:24px 16px;
-      }
+      .hero{ padding:28px 18px 4px; }
+      .btn-grid{ padding:0 18px; }
+      .section{ margin:18px 18px 0; padding:20px 16px; }
+      .divider{ margin:24px 18px 0; }
 
-      h1{
-        font-size:28px;
-      }
+      h1{ font-size:26px; }
 
       .logo{
-        width:130px;
-        height:130px;
+        width:112px;
+        height:112px;
       }
 
-      .section h2{
-        font-size:20px;
+      .section h2{ font-size:19px; }
+
+      /* more vibrant, saturated palette for mobile so the page reads punchy on small screens */
+      :root{
+        --green:#8fd633;
+        --green-deep:#3f7a12;
+        --gold:#ffcf6b;
+        --gold-soft:#ffe6ad;
+        --gold-dark:#e0a53a;
+        --clay:#ff7a3d;
+      }
+
+      body{
+        background:
+          radial-gradient(700px 420px at 15% -8%, rgba(143,214,51,.34), transparent 62%),
+          radial-gradient(620px 400px at 95% 8%, rgba(255,207,107,.26), transparent 62%),
+          linear-gradient(160deg, #081208 0%, var(--forest) 46%, #0a160a 100%);
+      }
+
+      .badge{
+        background:rgba(255,207,107,.18);
+        border-color:rgba(255,207,107,.45);
+      }
+
+      .btn{
+        background:linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+        box-shadow:0 12px 24px rgba(63,122,18,.5);
+      }
+
+      .btn.secondary{
+        background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+        box-shadow:0 12px 24px rgba(224,165,58,.5);
+      }
+
+      .highlight strong{ color:var(--gold); }
+
+      .phone-highlight{ color:var(--gold); }
+
+      .ribbon{
+        background:repeating-linear-gradient(
+          90deg,
+          var(--gold) 0 18px,
+          var(--green) 18px 36px,
+          var(--clay) 36px 54px
+        );
+        background-size:54px 100%;
       }
     }
   </style>
@@ -322,34 +561,43 @@
 <body>
   <main class="wrapper">
     <section class="container">
-      <div class="logo">
-        <img src="logo.png" alt="Temer Properties logo - Temer Real Estate Addis Ababa Ethiopia">
+      <div class="ribbon" aria-hidden="true"></div>
+
+      <a class="site-visit" href="tel:+251961435054" aria-label="Call Temer Properties to book a site visit, phone number 0961435054">
+        <span class="sv-dot" aria-hidden="true"></span>
+        Book Site Visit
+      </a>
+
+      <div class="hero">
+        <div class="logo">
+          <img src="logo.png" alt="Temer Properties logo - Temer Real Estate Addis Ababa Ethiopia">
+        </div>
+
+        <div class="badge">Trusted Real Estate in Addis Ababa</div>
+
+        <h1>Temer Real Estate &amp; Temer Properties</h1>
+        <p class="subtitle">
+          Premium apartments in Addis Ababa, smart property investment opportunities, and trusted real estate solutions in Ethiopia.
+        </p>
+
+        <p class="intro">
+          <strong>Temer Properties</strong>, established in <strong>2010</strong>, has grown to become one of Ethiopia's leading real estate companies. Over the years, Temer has built a solid reputation for delivering over <strong>11+ projects</strong>. With a commitment to excellence and customer satisfaction, <strong>Temer Property</strong> continues to be a trusted name in the Ethiopian real estate market, providing innovative solutions and transforming the landscape of the country's property industry.
+        </p>
       </div>
 
-      <div class="badge">Trusted Real Estate in Addis Ababa</div>
-
-      <h1>Temer Real Estate &amp; Temer Properties</h1>
-      <p class="subtitle">
-        Premium apartments in Addis Ababa, smart property investment opportunities, and trusted real estate solutions in Ethiopia.
-      </p>
-
-      <p class="intro">
-        <strong>Temer Properties</strong>, established in <strong>2010</strong>, has grown to become one of Ethiopia's leading real estate companies. Over the years, Temer has built a solid reputation for delivering over <strong>11+ projects</strong>. With a commitment to excellence and customer satisfaction, <strong>Temer Property</strong> continues to be a trusted name in the Ethiopian real estate market, providing innovative solutions and transforming the landscape of the country’s property industry.
-      </p>
-
       <div class="btn-grid">
-        <a class="btn" href="tel:+251983567677" aria-label="Call Temer Real Estate phone number 0983567677">
+        <a class="btn" href="tel:+251961435054" aria-label="Call Temer Real Estate phone number 0961435054">
           <div class="left">
             <div class="icon">📞</div>
-            <span>Call Temer Real Estate<br><small style="font-weight:600;opacity:.9;">0983567677</small></span>
+            <span>Call Temer Real Estate<br><small>0961435054</small></span>
           </div>
           <div>›</div>
         </a>
 
-        <a class="btn" href="https://wa.me/251983567677?text=Hello%20Temer%20Properties%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa." target="_blank" rel="noopener" aria-label="Chat with Temer Properties on WhatsApp">
+        <a class="btn" href="https://wa.me/251961435054?text=Hello%20Temer%20Properties%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa." target="_blank" rel="noopener" aria-label="Chat with Temer Properties on WhatsApp">
           <div class="left">
             <div class="icon">💬</div>
-            <span>WhatsApp Temer Properties</span>
+            <span>WhatsApp Temer Properties<br><small>0961435054</small></span>
           </div>
           <div>›</div>
         </a>
@@ -371,13 +619,15 @@
         </a>
       </div>
 
+      <div class="divider">Why Temer</div>
+
       <section class="section">
         <h2>Why Choose Temer Properties in Addis Ababa?</h2>
         <p>
           If you are searching for <strong>real estate in Addis Ababa</strong> or looking for an <strong>apartment in Addis Ababa</strong>, Temer Properties offers trusted expertise, quality developments, and long-term value. Whether you want a dream home, a family apartment, or a profitable property investment, Temer Real Estate is ready to help you make the right decision.
         </p>
         <p>
-          Looking to make a smart real estate investment in one of Africa’s fastest-growing cities? <strong>Now is the time.</strong> Opportunities like this don’t last—secure your dream home or investment property in Addis Ababa today before prices rise.
+          Looking to make a smart real estate investment in one of Africa's fastest-growing cities? <strong>Now is the time.</strong> Opportunities like this don't last—secure your dream home or investment property in Addis Ababa today before prices rise.
         </p>
         <p class="cta-text">
           📞 Contact Temer Properties now and get more information about available apartments, investment options, and premium properties in Addis Ababa.
@@ -385,14 +635,17 @@
 
         <div class="highlights">
           <div class="highlight">
+            <div class="h-icon">🏛️</div>
             <strong>2010</strong>
             <span>Established and growing strong</span>
           </div>
           <div class="highlight">
+            <div class="h-icon">🏗️</div>
             <strong>11+ Projects</strong>
             <span>Delivered with trust and quality</span>
           </div>
           <div class="highlight">
+            <div class="h-icon">📍</div>
             <strong>Addis Ababa</strong>
             <span>Prime real estate opportunities</span>
           </div>
@@ -402,7 +655,7 @@
       <section class="section">
         <h2>Temer Real Estate Phone Number</h2>
         <p>
-          To speak directly with the team, call <strong>Temer Real Estate phone number: 0983567677</strong>. You can also contact Temer Properties on WhatsApp for fast support, property details, apartment information, and investment guidance in Addis Ababa.
+          To speak directly with the team, call <strong>Temer Real Estate phone number: <span class="phone-highlight">0961435054</span></strong>. You can also contact Temer Properties on WhatsApp for fast support, property details, apartment information, and investment guidance in Addis Ababa.
         </p>
       </section>
 
@@ -412,7 +665,9 @@
       </p>
 
       <footer>
-        © <span id="year"></span> Temer Properties • Temer Real Estate Addis Ababa
+        <div class="foot-inner">
+          © <span id="year"></span> Temer Properties • Temer Real Estate Addis Ababa
+        </div>
       </footer>
     </section>
   </main>
