@@ -55,6 +55,9 @@
       --shadow:0 24px 60px rgba(0,0,0,.55);
       --serif:'Fraunces', Georgia, serif;
       --sans:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --wa:#25d366;
+      --wa-light:#5bf08f;
+      --wa-ink:#04220f;
     }
 
     *{box-sizing:border-box}
@@ -115,10 +118,10 @@
       animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
     }
 
-    /* floating site-visit call button, top right */
+    /* floating site-visit call button, top right of the hero (sits below the WhatsApp banner) */
     .site-visit{
       position:absolute;
-      top:22px;
+      top:19px;
       right:18px;
       z-index:5;
       display:inline-flex;
@@ -163,7 +166,7 @@
 
     @media (max-width:640px){
       .site-visit{
-        top:14px;
+        top:7px;
         right:12px;
         font-size:11.5px;
         padding:8px 12px 8px 10px;
@@ -188,8 +191,181 @@
       background-size:54px 100%;
     }
 
+    /* ============================================================
+       TOP-CENTER WHATSAPP BANNER — bold, bright, always moving
+       ============================================================ */
+    .wa-top{
+      padding:20px 26px 8px;
+      display:flex;
+      justify-content:center;
+      position:relative;
+      z-index:6;
+    }
+
+    .wa-cta{
+      position:relative;
+      display:block;
+      width:100%;
+      max-width:640px;
+      border-radius:22px;
+      text-decoration:none;
+      color:var(--wa-ink);
+      animation:wa-breathe 2.4s ease-in-out infinite;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* two staggered rings that radiate outward from the button */
+    .wa-ring{
+      position:absolute;
+      inset:0;
+      border-radius:22px;
+      pointer-events:none;
+      box-shadow:0 0 0 0 rgba(37,211,102,.75);
+      animation:wa-ripple 2.2s ease-out infinite;
+    }
+    .wa-ring.r2{ animation-delay:1.1s; }
+
+    .wa-face{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      padding:16px 22px;
+      border-radius:22px;
+      background:linear-gradient(135deg, var(--wa-light) 0%, var(--wa) 48%, #1db954 100%);
+      border:2px solid rgba(255,255,255,.55);
+      box-shadow:
+        0 16px 38px rgba(37,211,102,.5),
+        0 0 0 1px rgba(0,0,0,.12),
+        inset 0 2px 0 rgba(255,255,255,.55);
+      transition:filter .18s ease;
+    }
+
+    .wa-cta:hover .wa-face,
+    .wa-cta:focus-visible .wa-face{ filter:brightness(1.07) saturate(1.1); }
+
+    .wa-cta:focus-visible{
+      outline:3px solid var(--gold-soft);
+      outline-offset:5px;
+    }
+
+    .wa-cta:active{ animation-play-state:paused; transform:scale(.98); }
+
+    /* light streak sweeping across the button */
+    .wa-shine{
+      position:absolute;
+      top:-10%;
+      bottom:-10%;
+      left:-60%;
+      width:38%;
+      background:linear-gradient(100deg, transparent, rgba(255,255,255,.7), transparent);
+      transform:skewX(-20deg);
+      pointer-events:none;
+      animation:wa-sweep 3s ease-in-out infinite;
+    }
+
+    .wa-icon{
+      flex-shrink:0;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:var(--wa-ink);
+      color:var(--wa);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 14px rgba(0,0,0,.3);
+      animation:wa-ring-phone 3s ease-in-out infinite;
+      transform-origin:50% 60%;
+    }
+
+    .wa-icon svg{ width:30px; height:30px; fill:currentColor; display:block; }
+
+    .wa-copy{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      text-align:left;
+      min-width:0;
+    }
+
+    .wa-title{
+      font-family:var(--sans);
+      font-weight:800;
+      font-size:clamp(16px, 3.4vw, 22px);
+      line-height:1.18;
+      letter-spacing:-.2px;
+    }
+
+    .wa-sub{
+      margin-top:5px;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.4px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    /* blinking "live" dot in front of the number */
+    .wa-sub::before{
+      content:"";
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--wa-ink);
+      animation:wa-blink 1.1s ease-in-out infinite;
+      flex-shrink:0;
+    }
+
+    .wa-go{
+      flex-shrink:0;
+      font-size:28px;
+      font-weight:800;
+      line-height:1;
+      animation:wa-nudge 1.3s ease-in-out infinite;
+    }
+
+    @keyframes wa-breathe{
+      0%,100%{ transform:scale(1); }
+      50%{ transform:scale(1.03); }
+    }
+
+    @keyframes wa-ripple{
+      0%{ box-shadow:0 0 0 0 rgba(37,211,102,.75); }
+      100%{ box-shadow:0 0 0 16px rgba(37,211,102,0); }
+    }
+
+    @keyframes wa-sweep{
+      0%{ left:-60%; }
+      50%,100%{ left:130%; }
+    }
+
+    @keyframes wa-ring-phone{
+      0%,55%,100%{ transform:rotate(0); }
+      6%{ transform:rotate(-16deg); }
+      12%{ transform:rotate(14deg); }
+      18%{ transform:rotate(-12deg); }
+      24%{ transform:rotate(10deg); }
+      30%{ transform:rotate(-6deg); }
+      36%{ transform:rotate(0); }
+    }
+
+    @keyframes wa-blink{
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%{ opacity:.25; transform:scale(.7); }
+    }
+
+    @keyframes wa-nudge{
+      0%,100%{ transform:translateX(0); }
+      50%{ transform:translateX(6px); }
+    }
+
     .hero{
-      padding:34px 26px 6px;
+      padding:40px 26px 6px;
+      position:relative;
     }
 
     .logo{
@@ -459,7 +635,7 @@
     }
 
     @media (max-width:640px){
-      .hero{ padding:28px 18px 4px; }
+      .hero{ padding:30px 18px 4px; }
       .btn-grid{ padding:0 18px; }
       .section{ margin:18px 18px 0; padding:20px 16px; }
       .divider{ margin:24px 18px 0; }
@@ -472,6 +648,15 @@
       }
 
       .section h2{ font-size:19px; }
+
+      /* WhatsApp banner on small screens */
+      .wa-top{ padding:16px 16px 6px; }
+      .wa-face{ gap:12px; padding:13px 14px; border-radius:20px; }
+      .wa-cta, .wa-ring{ border-radius:20px; }
+      .wa-icon{ width:46px; height:46px; }
+      .wa-icon svg{ width:26px; height:26px; }
+      .wa-sub{ font-size:13px; }
+      .wa-go{ font-size:24px; }
 
       /* more vibrant, saturated palette for mobile so the page reads punchy on small screens */
       :root{
@@ -563,12 +748,34 @@
     <section class="container">
       <div class="ribbon" aria-hidden="true"></div>
 
-      <a class="site-visit" href="tel:+251961435054" aria-label="Call Temer Properties to book a site visit, phone number 0961435054">
-        <span class="sv-dot" aria-hidden="true"></span>
-        Book Site Visit
-      </a>
+      <!-- TOP-CENTER WHATSAPP BANNER -->
+      <div class="wa-top">
+        <a class="wa-cta"
+           href="https://wa.me/251997276364?text=Hello%20Temer%20Real%20Estate%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa."
+           target="_blank" rel="noopener"
+           aria-label="Contact Temer Real Estate on WhatsApp, number +251 997 276 364">
+          <span class="wa-ring" aria-hidden="true"></span>
+          <span class="wa-ring r2" aria-hidden="true"></span>
+          <span class="wa-face">
+            <span class="wa-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+            <span class="wa-copy">
+              <span class="wa-title">Contact Temer Real Estate on WhatsApp</span>
+              <span class="wa-sub">+251 997 276 364 &middot; Tap to chat</span>
+            </span>
+            <span class="wa-go" aria-hidden="true">&rsaquo;</span>
+            <span class="wa-shine" aria-hidden="true"></span>
+          </span>
+        </a>
+      </div>
 
       <div class="hero">
+        <a class="site-visit" href="tel:+251961435054" aria-label="Call Temer Properties to book a site visit, phone number 0961435054">
+          <span class="sv-dot" aria-hidden="true"></span>
+          Book Site Visit
+        </a>
+
         <div class="logo">
           <img src="logo.png" alt="Temer Properties logo - Temer Real Estate Addis Ababa Ethiopia">
         </div>
