@@ -1,16 +1,18 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Temer Real Estate | Temer Properties Addis Ababa | Apartments & Investment Property</title>
-   
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 
-  <meta name="description" content="Temer Real Estate and Temer Properties in Addis Ababa, Ethiopia. Explore apartments in Addis Ababa, premium investment property, and trusted real estate solutions. Call Temer Real Estate phone number 0983567677 today." />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Temer Real Estate and Temer Properties in Addis Ababa, Ethiopia. Explore apartments in Addis Ababa, premium investment property, and trusted real estate solutions. Call Temer Real Estate at 0903994798 today." />
   <meta name="keywords" content="Temer Real Estate, Temer Properties, Temer Real Estate phone number, real estate in Addis Ababa, apartment in Addis Ababa, Addis Ababa property, Ethiopia real estate, Temer Properties Addis Ababa, property investment Addis Ababa, homes in Addis Ababa" />
   <meta name="author" content="Temer Properties" />
   <meta name="robots" content="index, follow" />
@@ -19,18 +21,21 @@
 
   <link rel="canonical" href="https://temerrealestatesales.com/" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Temer Real Estate | Temer Properties Addis Ababa" />
   <meta property="og:description" content="Trusted real estate in Addis Ababa. Discover apartments, investment property, and premium real estate opportunities with Temer Properties." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://temerrealestatesales.com/" />
-  <meta property="og:image" content="logo.png" />
+  <meta property="og:image" content="https://temerrealestatesales.com/logo.png" />
   <meta property="og:site_name" content="Temer Properties" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Temer Real Estate | Temer Properties Addis Ababa" />
   <meta name="twitter:description" content="Temer Properties is a trusted name in Ethiopian real estate, offering apartments and investment opportunities in Addis Ababa." />
-  <meta name="twitter:image" content="logo.png" />
+  <meta name="twitter:image" content="https://temerrealestatesales.com/logo.png" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -64,7 +69,11 @@
     html{scroll-behavior:smooth}
 
     @media (prefers-reduced-motion: reduce){
-      *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+      *{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.001ms !important;
+      }
     }
 
     body{
@@ -81,7 +90,6 @@
       overflow-x:hidden;
     }
 
-    /* subtle woven-motif backdrop, evokes Ethiopian textile geometry without shouting */
     body::before{
       content:"";
       position:fixed;
@@ -118,7 +126,7 @@
       animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
     }
 
-    /* floating site-visit call button, top right of the hero (sits below the WhatsApp banner) */
+    /* Site visit button */
     .site-visit{
       position:absolute;
       top:19px;
@@ -141,7 +149,8 @@
       transition:transform .18s ease, filter .18s ease;
     }
 
-    .site-visit:hover, .site-visit:focus-visible{
+    .site-visit:hover,
+    .site-visit:focus-visible{
       transform:translateY(-2px) scale(1.03);
       filter:brightness(1.08);
     }
@@ -160,8 +169,12 @@
     }
 
     @keyframes pulse-glow{
-      0%, 100%{ box-shadow:0 10px 22px rgba(200,112,63,.45), 0 0 0 1px rgba(255,255,255,.18) inset; }
-      50%{ box-shadow:0 10px 30px rgba(255,157,61,.65), 0 0 0 1px rgba(255,255,255,.28) inset; }
+      0%,100%{
+        box-shadow:0 10px 22px rgba(200,112,63,.45), 0 0 0 1px rgba(255,255,255,.18) inset;
+      }
+      50%{
+        box-shadow:0 10px 30px rgba(255,157,61,.65), 0 0 0 1px rgba(255,255,255,.28) inset;
+      }
     }
 
     @media (max-width:640px){
@@ -178,7 +191,7 @@
       to{opacity:1; transform:translateY(0);}
     }
 
-    /* signature ribbon: thin gold/green cross-hatch band, nod to Ethiopian textile borders */
+    /* Decorative ribbon */
     .ribbon{
       height:9px;
       width:100%;
@@ -191,9 +204,7 @@
       background-size:54px 100%;
     }
 
-    /* ============================================================
-       TOP-CENTER WHATSAPP BANNER — bold, bright, always moving
-       ============================================================ */
+    /* WhatsApp banner */
     .wa-top{
       padding:20px 26px 8px;
       display:flex;
@@ -214,7 +225,6 @@
       -webkit-tap-highlight-color:transparent;
     }
 
-    /* two staggered rings that radiate outward from the button */
     .wa-ring{
       position:absolute;
       inset:0;
@@ -223,7 +233,8 @@
       box-shadow:0 0 0 0 rgba(37,211,102,.75);
       animation:wa-ripple 2.2s ease-out infinite;
     }
-    .wa-ring.r2{ animation-delay:1.1s; }
+
+    .wa-ring.r2{animation-delay:1.1s;}
 
     .wa-face{
       position:relative;
@@ -244,16 +255,20 @@
     }
 
     .wa-cta:hover .wa-face,
-    .wa-cta:focus-visible .wa-face{ filter:brightness(1.07) saturate(1.1); }
+    .wa-cta:focus-visible .wa-face{
+      filter:brightness(1.07) saturate(1.1);
+    }
 
     .wa-cta:focus-visible{
       outline:3px solid var(--gold-soft);
       outline-offset:5px;
     }
 
-    .wa-cta:active{ animation-play-state:paused; transform:scale(.98); }
+    .wa-cta:active{
+      animation-play-state:paused;
+      transform:scale(.98);
+    }
 
-    /* light streak sweeping across the button */
     .wa-shine{
       position:absolute;
       top:-10%;
@@ -281,7 +296,12 @@
       transform-origin:50% 60%;
     }
 
-    .wa-icon svg{ width:30px; height:30px; fill:currentColor; display:block; }
+    .wa-icon svg{
+      width:30px;
+      height:30px;
+      fill:currentColor;
+      display:block;
+    }
 
     .wa-copy{
       display:flex;
@@ -309,7 +329,6 @@
       gap:8px;
     }
 
-    /* blinking "live" dot in front of the number */
     .wa-sub::before{
       content:"";
       width:9px;
@@ -329,38 +348,38 @@
     }
 
     @keyframes wa-breathe{
-      0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.03); }
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.03);}
     }
 
     @keyframes wa-ripple{
-      0%{ box-shadow:0 0 0 0 rgba(37,211,102,.75); }
-      100%{ box-shadow:0 0 0 16px rgba(37,211,102,0); }
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.75);}
+      100%{box-shadow:0 0 0 16px rgba(37,211,102,0);}
     }
 
     @keyframes wa-sweep{
-      0%{ left:-60%; }
-      50%,100%{ left:130%; }
+      0%{left:-60%;}
+      50%,100%{left:130%;}
     }
 
     @keyframes wa-ring-phone{
-      0%,55%,100%{ transform:rotate(0); }
-      6%{ transform:rotate(-16deg); }
-      12%{ transform:rotate(14deg); }
-      18%{ transform:rotate(-12deg); }
-      24%{ transform:rotate(10deg); }
-      30%{ transform:rotate(-6deg); }
-      36%{ transform:rotate(0); }
+      0%,55%,100%{transform:rotate(0);}
+      6%{transform:rotate(-16deg);}
+      12%{transform:rotate(14deg);}
+      18%{transform:rotate(-12deg);}
+      24%{transform:rotate(10deg);}
+      30%{transform:rotate(-6deg);}
+      36%{transform:rotate(0);}
     }
 
     @keyframes wa-blink{
-      0%,100%{ opacity:1; transform:scale(1); }
-      50%{ opacity:.25; transform:scale(.7); }
+      0%,100%{opacity:1; transform:scale(1);}
+      50%{opacity:.25; transform:scale(.7);}
     }
 
     @keyframes wa-nudge{
-      0%,100%{ transform:translateX(0); }
-      50%{ transform:translateX(6px); }
+      0%,100%{transform:translateX(0);}
+      50%{transform:translateX(6px);}
     }
 
     .hero{
@@ -443,7 +462,7 @@
       padding:16px 18px;
     }
 
-    .intro strong{ color:var(--gold-soft); }
+    .intro strong{color:var(--gold-soft);}
 
     .btn-grid{
       display:grid;
@@ -459,7 +478,6 @@
       padding:16px 18px;
       border-radius:var(--radius-md);
       text-decoration:none;
-      color:var(--forest);
       background:linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
       color:#fbfff2;
       font-weight:700;
@@ -475,7 +493,8 @@
       box-shadow:0 12px 26px rgba(169,128,58,.35);
     }
 
-    .btn:hover, .btn:focus-visible{
+    .btn:hover,
+    .btn:focus-visible{
       transform:translateY(-3px);
       filter:brightness(1.06);
       box-shadow:0 16px 32px rgba(0,0,0,.4);
@@ -524,7 +543,9 @@
       letter-spacing:1.5px;
       text-transform:uppercase;
     }
-    .divider::before, .divider::after{
+
+    .divider::before,
+    .divider::after{
       content:"";
       height:1px;
       flex:1;
@@ -554,7 +575,7 @@
       font-size:15px;
     }
 
-    .section p:last-of-type{ margin-bottom:0; }
+    .section p:last-of-type{margin-bottom:0;}
 
     .highlights{
       display:grid;
@@ -596,7 +617,7 @@
     }
 
     .cta-text{
-      color:var(--gold-soft);
+      color:var(--gold-soft) !important;
       font-weight:700;
       margin-top:10px;
       font-size:15px;
@@ -618,9 +639,7 @@
       border-top:1px solid var(--hairline);
     }
 
-    footer .foot-inner{
-      padding-top:16px;
-    }
+    footer .foot-inner{padding-top:16px;}
 
     .sr-only{
       position:absolute;
@@ -635,30 +654,29 @@
     }
 
     @media (max-width:640px){
-      .hero{ padding:30px 18px 4px; }
-      .btn-grid{ padding:0 18px; }
-      .section{ margin:18px 18px 0; padding:20px 16px; }
-      .divider{ margin:24px 18px 0; }
+      .hero{padding:30px 18px 4px;}
+      .btn-grid{padding:0 18px;}
+      .section{margin:18px 18px 0; padding:20px 16px;}
+      .divider{margin:24px 18px 0;}
 
-      h1{ font-size:26px; }
+      h1{font-size:26px;}
 
       .logo{
         width:112px;
         height:112px;
       }
 
-      .section h2{ font-size:19px; }
+      .section h2{font-size:19px;}
 
-      /* WhatsApp banner on small screens */
-      .wa-top{ padding:16px 16px 6px; }
-      .wa-face{ gap:12px; padding:13px 14px; border-radius:20px; }
-      .wa-cta, .wa-ring{ border-radius:20px; }
-      .wa-icon{ width:46px; height:46px; }
-      .wa-icon svg{ width:26px; height:26px; }
-      .wa-sub{ font-size:13px; }
-      .wa-go{ font-size:24px; }
+      .wa-top{padding:16px 16px 6px;}
+      .wa-face{gap:12px; padding:13px 14px; border-radius:20px;}
+      .wa-cta,
+      .wa-ring{border-radius:20px;}
+      .wa-icon{width:46px; height:46px;}
+      .wa-icon svg{width:26px; height:26px;}
+      .wa-sub{font-size:13px;}
+      .wa-go{font-size:24px;}
 
-      /* more vibrant, saturated palette for mobile so the page reads punchy on small screens */
       :root{
         --green:#8fd633;
         --green-deep:#3f7a12;
@@ -690,9 +708,8 @@
         box-shadow:0 12px 24px rgba(224,165,58,.5);
       }
 
-      .highlight strong{ color:var(--gold); }
-
-      .phone-highlight{ color:var(--gold); }
+      .highlight strong{color:var(--gold);}
+      .phone-highlight{color:var(--gold);}
 
       .ribbon{
         background:repeating-linear-gradient(
@@ -706,7 +723,7 @@
     }
   </style>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Ads Tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17623758547"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -715,28 +732,29 @@
     gtag('config', 'AW-17623758547');
   </script>
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"RealEstateAgent",
-    "name":"Temer Properties",
-    "alternateName":"Temer Real Estate",
-    "url":"https://temerrealestatesales.com/",
-    "logo":"https://temerrealestatesales.com/logo.png",
-    "image":"https://temerrealestatesales.com/logo.png",
-    "telephone":"+251983567677",
-    "description":"Temer Properties, established in 2010, is one of Ethiopia's leading real estate companies, trusted for delivering over 11+ projects and offering apartments and investment opportunities in Addis Ababa.",
-    "areaServed":{
-      "@type":"City",
-      "name":"Addis Ababa"
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Temer Properties",
+    "alternateName": "Temer Real Estate",
+    "url": "https://temerrealestatesales.com/",
+    "logo": "https://temerrealestatesales.com/logo.png",
+    "image": "https://temerrealestatesales.com/logo.png",
+    "telephone": "+251903994798",
+    "description": "Temer Properties, established in 2010, is one of Ethiopia's leading real estate companies, trusted for delivering over 11 projects and offering apartments and investment opportunities in Addis Ababa.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Addis Ababa"
     },
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Addis Ababa",
-      "addressCountry":"ET"
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Addis Ababa",
+      "addressCountry": "ET"
     },
-    "foundingDate":"2010",
-    "sameAs":[
+    "foundingDate": "2010",
+    "sameAs": [
       "https://temerrealestatesales.com/"
     ]
   }
@@ -748,30 +766,43 @@
     <section class="container">
       <div class="ribbon" aria-hidden="true"></div>
 
-      <!-- TOP-CENTER WHATSAPP BANNER -->
+      <!-- Main WhatsApp Banner -->
       <div class="wa-top">
-        <a class="wa-cta"
-           href="https://wa.me/251997276364?text=Hello%20Temer%20Real%20Estate%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa."
-           target="_blank" rel="noopener"
-           aria-label="Contact Temer Real Estate on WhatsApp, number +251 997 276 364">
+        <a
+          class="wa-cta"
+          href="https://wa.me/251903994798?text=Hello%20Temer%20Real%20Estate%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa."
+          target="_blank"
+          rel="noopener"
+          aria-label="Contact Temer Real Estate on WhatsApp, number 0903994798"
+        >
           <span class="wa-ring" aria-hidden="true"></span>
           <span class="wa-ring r2" aria-hidden="true"></span>
+
           <span class="wa-face">
             <span class="wa-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
             </span>
+
             <span class="wa-copy">
               <span class="wa-title">Contact Temer Real Estate on WhatsApp</span>
-              <span class="wa-sub">+251 997 276 364 &middot; Tap to chat</span>
+              <span class="wa-sub">0903994798 · Tap to chat</span>
             </span>
-            <span class="wa-go" aria-hidden="true">&rsaquo;</span>
+
+            <span class="wa-go" aria-hidden="true">›</span>
             <span class="wa-shine" aria-hidden="true"></span>
           </span>
         </a>
       </div>
 
+      <!-- Hero Section -->
       <div class="hero">
-        <a class="site-visit" href="tel:+251961435054" aria-label="Call Temer Properties to book a site visit, phone number 0961435054">
+        <a
+          class="site-visit"
+          href="tel:+251903994798"
+          aria-label="Call Temer Properties to book a site visit, phone number 0903994798"
+        >
           <span class="sv-dot" aria-hidden="true"></span>
           Book Site Visit
         </a>
@@ -783,6 +814,7 @@
         <div class="badge">Trusted Real Estate in Addis Ababa</div>
 
         <h1>Temer Real Estate &amp; Temer Properties</h1>
+
         <p class="subtitle">
           Premium apartments in Addis Ababa, smart property investment opportunities, and trusted real estate solutions in Ethiopia.
         </p>
@@ -792,24 +824,50 @@
         </p>
       </div>
 
+      <!-- Contact Buttons -->
       <div class="btn-grid">
-        <a class="btn" href="tel:+251961435054" aria-label="Call Temer Real Estate phone number 0961435054">
+
+        <a
+          class="btn"
+          href="tel:+251903994798"
+          aria-label="Call Temer Real Estate at 0903994798"
+        >
           <div class="left">
             <div class="icon">📞</div>
-            <span>Call Temer Real Estate<br><small>0961435054</small></span>
+            <span>
+              Call Temer Real Estate
+              <br>
+              <small>0903994798</small>
+            </span>
           </div>
           <div>›</div>
         </a>
 
-        <a class="btn" href="https://wa.me/251961435054?text=Hello%20Temer%20Properties%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa." target="_blank" rel="noopener" aria-label="Chat with Temer Properties on WhatsApp">
+        <a
+          class="btn"
+          href="https://wa.me/251903994798?text=Hello%20Temer%20Properties%2C%20I%20need%20more%20information%20about%20real%20estate%20in%20Addis%20Ababa."
+          target="_blank"
+          rel="noopener"
+          aria-label="Chat with Temer Properties on WhatsApp at 0903994798"
+        >
           <div class="left">
             <div class="icon">💬</div>
-            <span>WhatsApp Temer Properties<br><small>0961435054</small></span>
+            <span>
+              WhatsApp Temer Properties
+              <br>
+              <small>0903994798</small>
+            </span>
           </div>
           <div>›</div>
         </a>
 
-        <a class="btn secondary" href="https://temerrealestatesales.com/" target="_blank" rel="noopener" aria-label="Visit Temer Properties website">
+        <a
+          class="btn secondary"
+          href="https://temerrealestatesales.com/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Temer Properties website"
+        >
           <div class="left">
             <div class="icon">🌐</div>
             <span>Visit Website</span>
@@ -817,25 +875,36 @@
           <div>›</div>
         </a>
 
-        <a class="btn secondary" href="https://share.google/Sbk4VtdJ1nL5pbZ3s" target="_blank" rel="noopener" aria-label="View Temer Properties office location">
+        <a
+          class="btn secondary"
+          href="https://share.google/Sbk4VtdJ1nL5pbZ3s"
+          target="_blank"
+          rel="noopener"
+          aria-label="View Temer Properties office location"
+        >
           <div class="left">
             <div class="icon">📍</div>
             <span>Office Location</span>
           </div>
           <div>›</div>
         </a>
+
       </div>
 
       <div class="divider">Why Temer</div>
 
+      <!-- Why Choose Temer -->
       <section class="section">
         <h2>Why Choose Temer Properties in Addis Ababa?</h2>
+
         <p>
           If you are searching for <strong>real estate in Addis Ababa</strong> or looking for an <strong>apartment in Addis Ababa</strong>, Temer Properties offers trusted expertise, quality developments, and long-term value. Whether you want a dream home, a family apartment, or a profitable property investment, Temer Real Estate is ready to help you make the right decision.
         </p>
+
         <p>
           Looking to make a smart real estate investment in one of Africa's fastest-growing cities? <strong>Now is the time.</strong> Opportunities like this don't last—secure your dream home or investment property in Addis Ababa today before prices rise.
         </p>
+
         <p class="cta-text">
           📞 Contact Temer Properties now and get more information about available apartments, investment options, and premium properties in Addis Ababa.
         </p>
@@ -846,11 +915,13 @@
             <strong>2010</strong>
             <span>Established and growing strong</span>
           </div>
+
           <div class="highlight">
             <div class="h-icon">🏗️</div>
             <strong>11+ Projects</strong>
             <span>Delivered with trust and quality</span>
           </div>
+
           <div class="highlight">
             <div class="h-icon">📍</div>
             <strong>Addis Ababa</strong>
@@ -859,23 +930,33 @@
         </div>
       </section>
 
+      <!-- Phone Number Section -->
       <section class="section">
         <h2>Temer Real Estate Phone Number</h2>
+
         <p>
-          To speak directly with the team, call <strong>Temer Real Estate phone number: <span class="phone-highlight">0961435054</span></strong>. You can also contact Temer Properties on WhatsApp for fast support, property details, apartment information, and investment guidance in Addis Ababa.
+          To speak directly with the team, call
+          <strong>
+            Temer Real Estate phone number:
+            <span class="phone-highlight">0903994798</span>
+          </strong>.
+          You can also contact Temer Properties on WhatsApp for fast support, property details, apartment information, and investment guidance in Addis Ababa.
         </p>
       </section>
 
       <h2 class="sr-only">Temer Properties Addis Ababa Real Estate</h2>
+
       <p class="sr-only">
         Temer Real Estate is a trusted real estate company in Addis Ababa, Ethiopia, offering apartments in Addis Ababa, property investment opportunities, and premium housing solutions.
       </p>
 
+      <!-- Footer -->
       <footer>
         <div class="foot-inner">
           © <span id="year"></span> Temer Properties • Temer Real Estate Addis Ababa
         </div>
       </footer>
+
     </section>
   </main>
 
@@ -884,3 +965,4 @@
   </script>
 </body>
 </html>
+```
